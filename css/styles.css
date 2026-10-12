@@ -374,6 +374,8 @@ h1, h2, h3 { font-family: var(--font-title); line-height: 1.1; }
   background: #fff8e6;
 }
 .rsvp__form input:focus, .rsvp__form select:focus, .rsvp__form textarea:focus { outline: 3px solid #f2a93b; border-color: var(--gold); }
+.rsvp__form input[aria-invalid="true"] { border-color: var(--ember); background: #fdeae3; }
+.rsvp__error { font-weight: 800; font-size: .92rem; color: var(--ember); }
 .rsvp__buttons { display: grid; gap: 14px; max-width: 340px; margin: 0 auto; }
 
 /* Música: el reproductor de YouTube debe quedar a la vista */

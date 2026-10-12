@@ -21,23 +21,24 @@ test('mensaje con varias personas lista un nombre por línea', () => {
   assert.strictEqual(
     msg,
     '¡Hola! Confirmo nuestra asistencia al bautizo de Luka el 14 de noviembre de 2026.\n' +
-    'Asistiremos 3 personas:\n• María López\n• Juan Pérez\n• Ana'
+    'Asistiremos 3 personas:\n• María López\n• Juan Pérez\n• Ana\n' +
+    'Alergias o peticiones para el menú: ninguna'
   );
 });
 
 test('mensaje en singular cuando es una persona', () => {
   const msg = buildRsvpMessage({ names: ['Ana'], people: 1, babyName: 'Luka' });
-  assert.strictEqual(msg, '¡Hola! Confirmo mi asistencia al bautizo de Luka.\nAsistirá 1 persona:\n• Ana');
+  assert.strictEqual(msg, '¡Hola! Confirmo mi asistencia al bautizo de Luka.\nAsistirá 1 persona:\n• Ana\nAlergias o peticiones para el menú: ninguna');
 });
 
 test('los nombres vacíos no aparecen en el mensaje', () => {
   const msg = buildRsvpMessage({ names: ['   ', 'Juan', ''], people: 3, babyName: 'Luka' });
-  assert.match(msg, /Asistiremos 3 personas:\n• Juan$/);
+  assert.match(msg, /Asistiremos 3 personas:\n• Juan\nAlergias/);
 });
 
 test('mensaje sin ningún nombre termina en el número de personas', () => {
   const msg = buildRsvpMessage({ names: ['', ''], people: 2, babyName: 'Luka' });
-  assert.match(msg, /Asistiremos 2 personas\.$/);
+  assert.match(msg, /Asistiremos 2 personas\.\nAlergias/);
 });
 
 test('los nombres que sobran al reducir el número de personas se descartan', () => {
@@ -47,12 +48,12 @@ test('los nombres que sobran al reducir el número de personas se descartan', ()
 
 test('las alergias o notas del menú van al final', () => {
   const msg = buildRsvpMessage({ names: ['Ana'], people: 1, babyName: 'Luka', dietNotes: '  Ana es celíaca ' });
-  assert.match(msg, /• Ana\nAlergias o menú: Ana es celíaca$/);
+  assert.match(msg, /• Ana\nAlergias o peticiones para el menú: Ana es celíaca$/);
 });
 
-test('sin notas del menú no se añade esa línea', () => {
+test('sin notas del menú el mensaje dice "ninguna"', () => {
   const msg = buildRsvpMessage({ names: ['Ana'], people: 1, babyName: 'Luka', dietNotes: '   ' });
-  assert.ok(!msg.includes('Alergias'));
+  assert.match(msg, /Alergias o peticiones para el menú: ninguna$/);
 });
 
 test('número de personas inválido se trata como 1', () => {

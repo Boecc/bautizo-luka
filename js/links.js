@@ -18,7 +18,7 @@ function buildRsvpMessage({ names = [], people = 1, babyName = 'Luka', dateText 
     ...filled.map((name) => `• ${name}`)
   ];
   const diet = String(dietNotes).trim();
-  if (diet) lines.push(`Alergias o menú: ${diet}`);
+  lines.push(`Alergias o peticiones para el menú: ${diet || 'ninguna'}`);
   return lines.join('\n');
 }
 
@@ -32,6 +32,7 @@ function initRsvp() {
   const countSelect = document.getElementById('guest-count');
   const dietInput = document.getElementById('guest-diet');
   const links = document.querySelectorAll('a[data-contact]');
+  const errorBox = document.getElementById('rsvp-error');
   if (!namesBox || !countSelect || typeof CONFIG === 'undefined') return;
 
   // Lo ya escrito se conserva aunque se cambie el número de personas
@@ -64,6 +65,8 @@ function initRsvp() {
       input.value = names[i] || '';
       input.addEventListener('input', () => {
         names[i] = input.value;
+        input.removeAttribute('aria-invalid');
+        if (errorBox && !emptyNameInputs().length) errorBox.hidden = true;
         update();
       });
       label.appendChild(input);
@@ -72,7 +75,31 @@ function initRsvp() {
     update();
   }
 
-  countSelect.addEventListener('change', renderNames);
+  function emptyNameInputs() {
+    return Array.from(namesBox.querySelectorAll('input')).filter((input) => !input.value.trim());
+  }
+
+  // No se abre WhatsApp hasta que estén todos los nombres
+  links.forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const empty = emptyNameInputs();
+      if (!empty.length) return;
+      e.preventDefault();
+      empty.forEach((input) => input.setAttribute('aria-invalid', 'true'));
+      if (errorBox) {
+        errorBox.textContent = empty.length === 1
+          ? 'Falta 1 nombre por escribir.'
+          : `Faltan ${empty.length} nombres por escribir.`;
+        errorBox.hidden = false;
+      }
+      empty[0].focus();
+    });
+  });
+
+  countSelect.addEventListener('change', () => {
+    if (errorBox) errorBox.hidden = true;
+    renderNames();
+  });
   if (dietInput) dietInput.addEventListener('input', update);
   renderNames();
 }
