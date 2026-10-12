@@ -1,0 +1,4 @@
+node_modules/
+.DS_Store
+# original sin recortar del cachorro; la web usa bebe-leon.png
+src/bebe-leon.jpg

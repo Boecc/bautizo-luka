@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bautizo de Luka · 14 de noviembre</title>
+  <meta name="description" content="Luka se bautiza el 14 de noviembre de 2026. ¡Te esperamos en la sabana!">
+  <meta name="theme-color" content="#2a1238">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bautizo de Luka · 14 de noviembre">
+  <meta property="og:description" content="Toca el sol y descubre el camino hasta la celebración.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%80%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <noscript><style>body.is-locked{overflow:auto}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body class="is-locked">
+<div class="page">
+
+  <!-- ============ PORTADA: toca el sol ============ -->
+  <section id="intro" class="intro" aria-label="Portada">
+    <div class="sky sky--night"></div>
+    <div class="sky sky--dawn"></div>
+    <div class="sky sky--day"></div>
+    <div class="stars" id="stars" aria-hidden="true"></div>
+
+    <button id="sun" class="sun" type="button" aria-label="Toca el sol para que amanezca">
+      <span class="sun__glow"></span>
+      <span class="sun__disc"></span>
+    </button>
+
+    <svg class="savanna" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <!-- colinas lejanas y cercanas -->
+      <path d="M0 120 C 60 95, 110 100, 170 118 S 300 100, 400 110 L400 300 L0 300Z" fill="#4a1c4e"/>
+      <path d="M0 150 C 80 130, 140 140, 200 150 S 320 135, 400 148 L400 300 L0 300Z" fill="#2d1236"/>
+      <!-- acacia izquierda -->
+      <g fill="#170a1f">
+        <path d="M58 300 L62 218 Q63 202 50 192 L57 189 Q71 198 69 215 L73 300Z"/>
+        <ellipse cx="62" cy="184" rx="48" ry="11"/>
+        <ellipse cx="38" cy="192" rx="26" ry="8"/>
+        <ellipse cx="90" cy="192" rx="22" ry="7"/>
+      </g>
+      <!-- acacia derecha -->
+      <g fill="#170a1f">
+        <path d="M332 300 L335 236 Q336 224 326 217 L331 215 Q342 222 341 234 L345 300Z"/>
+        <ellipse cx="336" cy="210" rx="34" ry="8"/>
+        <ellipse cx="318" cy="216" rx="18" ry="6"/>
+      </g>
+      <!-- roca -->
+      <path d="M128 270 L136 196 Q140 176 168 173 L232 173 Q260 176 264 196 L272 270 Z" fill="#120618"/>
+      <!-- cachorro -->
+      <g transform="translate(200 173)">
+        <g id="cub" class="cub">
+          <image href="src/bebe-leon.png" x="-41" y="-98" width="76" height="100"/>
+        </g>
+      </g>
+      <!-- hierba en primer plano -->
+      <path d="M0 300 L0 262 Q 40 248 80 262 T 160 258 T 240 262 T 320 256 T 400 262 L400 300Z" fill="#0f0616"/>
+    </svg>
+
+    <div class="hint" id="hint" aria-live="polite">
+      <p class="hint__small">Algo despierta en la sabana…</p>
+      <p class="hint__main">Toca el sol</p>
+    </div>
+
+    <div class="reveal-intro" id="reveal-intro">
+      <p class="reveal-intro__eyebrow">Ha llegado el pequeño rey de la sabana</p>
+      <h1>Luka</h1>
+      <p class="reveal-intro__surname">Torralba Guillén</p>
+      <p class="reveal-intro__tag">¡se bautiza!</p>
+      <button id="go" class="btn btn--gold" type="button">Sigue el camino ↓</button>
+    </div>
+  </section>
+
+  <main id="content">
+
+    <!-- ============ INVITACIÓN ============ -->
+    <section class="section invite">
+      <p class="eyebrow reveal">Con mucho cariño te invitamos al</p>
+      <h2 class="reveal">Bautizo de Luka</h2>
+      <p class="invite__date reveal">Sábado, 14 de noviembre de 2026</p>
+      <p class="reveal">Luka empieza su gran aventura y queremos compartir este día tan especial contigo. Sigue el camino y descubre dónde nos vemos.</p>
+    </section>
+
+    <!-- ============ RECORRIDO ============ -->
+    <section class="journey" id="journey" aria-label="Recorrido del evento">
+      <!-- piezas del mapa de sabana, reutilizadas más abajo con <use> -->
+      <svg class="journey__defs" aria-hidden="true">
+        <defs>
+          <g id="deco-acacia">
+            <ellipse cx="42" cy="62" rx="22" ry="3" fill="#a8561a" opacity=".18"/>
+            <path d="M37 62 L39 34 Q40 26 30 20 L34 18 Q44 24 43 34 L46 62Z" fill="#7a4a22"/>
+            <path d="M41 36 Q52 30 58 20" fill="none" stroke="#7a4a22" stroke-width="3" stroke-linecap="round"/>
+            <ellipse cx="40" cy="16" rx="38" ry="10" fill="#6f7f35"/>
+            <ellipse cx="22" cy="22" rx="20" ry="7" fill="#7d8d3d"/>
+            <ellipse cx="60" cy="21" rx="18" ry="6" fill="#7d8d3d"/>
+            <ellipse cx="42" cy="12" rx="24" ry="5" fill="#8fa04a" opacity=".7"/>
+          </g>
+          <g id="deco-grass">
+            <path d="M4 14 Q5 6 1 2 M9 14 Q9 5 8 0 M13 14 Q14 6 18 1 M18 14 Q20 8 25 5" fill="none" stroke="#a39238" stroke-width="1.8" stroke-linecap="round"/>
+          </g>
+          <g id="deco-rock">
+            <path d="M2 17 Q0 8 8 5 Q14 0 21 4 Q31 5 32 17Z" fill="#c49a62"/>
+            <path d="M8 5 Q14 0 21 4 Q16 6 13 10Z" fill="#d9b47e"/>
+          </g>
+          <g id="deco-water">
+            <ellipse cx="45" cy="22" rx="43" ry="16" fill="#d8b56f"/>
+            <ellipse cx="45" cy="21" rx="37" ry="12" fill="#8fcfd0"/>
+            <path d="M24 18 Q36 13 50 15" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+            <path d="M8 22 Q8 12 5 8 M12 23 Q13 13 15 7 M16 24 Q18 16 22 12" fill="none" stroke="#7d8d3d" stroke-width="1.8" stroke-linecap="round"/>
+          </g>
+        </defs>
+      </svg>
+
+      <svg class="deco deco--acacia" viewBox="0 0 80 66" style="left:68%;top:3%;width:96px" aria-hidden="true"><use href="#deco-acacia"/></svg>
+      <svg class="deco deco--acacia" viewBox="0 0 80 66" style="left:4%;top:40%;width:80px" aria-hidden="true"><use href="#deco-acacia"/></svg>
+      <svg class="deco deco--acacia" viewBox="0 0 80 66" style="left:78%;top:52%;width:62px" aria-hidden="true"><use href="#deco-acacia"/></svg>
+      <svg class="deco deco--acacia" viewBox="0 0 80 66" style="left:6%;top:85%;width:84px" aria-hidden="true"><use href="#deco-acacia"/></svg>
+      <svg class="deco deco--water" viewBox="0 0 90 40" style="left:70%;top:88%" aria-hidden="true"><use href="#deco-water"/></svg>
+      <svg class="deco deco--rock" viewBox="0 0 34 18" style="left:12%;top:9%" aria-hidden="true"><use href="#deco-rock"/></svg>
+      <svg class="deco deco--rock" viewBox="0 0 34 18" style="left:86%;top:36%" aria-hidden="true"><use href="#deco-rock"/></svg>
+      <svg class="deco deco--rock" viewBox="0 0 34 18" style="left:30%;top:94%" aria-hidden="true"><use href="#deco-rock"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:30%;top:5%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:88%;top:13%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:6%;top:34%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:62%;top:36%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:22%;top:55%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:32%;top:50%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:91%;top:61%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:88%;top:81%" aria-hidden="true"><use href="#deco-grass"/></svg>
+      <svg class="deco deco--grass" viewBox="0 0 26 14" style="left:38%;top:84%" aria-hidden="true"><use href="#deco-grass"/></svg>
+
+      <!-- sendero: pista de tierra, huellas punteadas y tramo ya recorrido -->
+      <svg class="journey__path" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <clipPath id="walked"><rect id="walk-clip" x="0" y="0" width="100" height="0"/></clipPath>
+        </defs>
+        <path class="trail trail--track" d="M50 0 C 50 120, 24 130, 24 250 C 24 400, 76 520, 76 700 C 76 850, 50 880, 50 1000"/>
+        <path class="trail trail--dots" id="walk-path" d="M50 0 C 50 120, 24 130, 24 250 C 24 400, 76 520, 76 700 C 76 850, 50 880, 50 1000"/>
+        <path class="trail trail--walked" clip-path="url(#walked)" d="M50 0 C 50 120, 24 130, 24 250 C 24 400, 76 520, 76 700 C 76 850, 50 880, 50 1000"/>
+      </svg>
+
+      <svg id="paw" class="paw" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="#ffd36e" stroke="#a8561a" stroke-width="2"/>
+        <ellipse cx="20" cy="25" rx="7" ry="5.5" fill="#8a3b17"/>
+        <circle cx="11.5" cy="17" r="2.8" fill="#8a3b17"/>
+        <circle cx="16.5" cy="12" r="2.8" fill="#8a3b17"/>
+        <circle cx="23.5" cy="12" r="2.8" fill="#8a3b17"/>
+        <circle cx="28.5" cy="17" r="2.8" fill="#8a3b17"/>
+      </svg>
+
+      <!-- Parada 1: la iglesia -->
+      <article class="stop stop--church reveal">
+        <div class="stop__marker">
+          <img src="src/iglesia.jpg" alt="Presentación del cachorro" loading="lazy">
+        </div>
+        <div class="stop__body">
+          <p class="stop__time">Primera parada · 12:00 h</p>
+          <h3>La ceremonia</h3>
+          <p class="stop__place">Parroquia Nuestra Señora de la Encarnación<br>Churra, Murcia</p>
+          <a class="stop__link" href="https://share.google/mRJza4ylxwwil0LGh" target="_blank" rel="noopener">Ver ubicación →</a>
+        </div>
+      </article>
+
+      <p class="journey__between reveal">Después, un paseo hasta la celebración…</p>
+
+      <!-- Parada 2: el restaurante -->
+      <article class="stop stop--party reveal">
+        <div class="stop__marker">
+          <img class="stop__img--food" src="src/comida.jpg" alt="Cachorro de león comiendo" loading="lazy">
+        </div>
+        <div class="stop__body">
+          <p class="stop__time">Segunda parada · desde las 13:30 h</p>
+          <h3>La celebración</h3>
+          <p class="stop__place">Restaurante Cobatillas<br>Comemos, brindamos y celebramos juntos</p>
+          <a class="stop__link" href="https://share.google/OKyuR7xf2Q4AOolnz" target="_blank" rel="noopener">Ver ubicación →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ CUENTA ATRÁS ============ -->
+    <section class="section countdown" aria-label="Cuenta atrás">
+      <p class="eyebrow eyebrow--light reveal">Faltan para el gran día</p>
+      <div class="countdown__grid reveal" id="countdown" role="timer" aria-live="off">
+        <div class="cd"><span id="cd-days">--</span><small>días</small></div>
+        <div class="cd"><span id="cd-hours">--</span><small>horas</small></div>
+        <div class="cd"><span id="cd-minutes">--</span><small>min</small></div>
+        <div class="cd"><span id="cd-seconds">--</span><small>seg</small></div>
+      </div>
+      <p class="countdown__done reveal" id="cd-done" hidden>¡Hoy es el gran día! 🦁☀️</p>
+    </section>
+
+    <!-- ============ CONFIRMAR ASISTENCIA ============ -->
+    <section class="section rsvp" id="rsvp">
+      <h2 class="reveal">¿Te animas?</h2>
+      <p class="reveal">Confirmar asistencia.</p>
+      <form class="rsvp__form reveal" id="rsvp-form" autocomplete="off">
+        <label>¿Cuántos sois?
+          <select id="guest-count">
+            <option value="1">1 persona</option><option value="2" selected>2 personas</option>
+            <option value="3">3 personas</option><option value="4">4 personas</option>
+            <option value="5">5 personas</option><option value="6">6 personas</option>
+            <option value="7">7 personas</option><option value="8">8 personas</option>
+            <option value="9">9 personas</option><option value="10">10 personas</option>
+          </select>
+        </label>
+        <!-- un campo de nombre por persona; los crea js/links.js -->
+        <div class="rsvp__names" id="guest-names"></div>
+        <label><span>¿Alguna alergia o necesidad con el menú? <span class="rsvp__optional">(opcional)</span></span>
+          <textarea id="guest-diet" rows="3" placeholder="Ej. Ana es celíaca y Leo necesita menú infantil"></textarea>
+        </label>
+      </form>
+      <div class="rsvp__buttons reveal">
+        <a class="btn btn--wa" data-contact="alvaro" href="https://wa.me/34647470724" target="_blank" rel="noopener">💬 Confirmar con Álvaro</a>
+        <a class="btn btn--wa" data-contact="tere" href="https://wa.me/34610649989" target="_blank" rel="noopener">💬 Confirmar con Tere</a>
+      </div>
+    </section>
+
+    <!-- ============ MÚSICA ============ -->
+    <section class="section music" aria-label="Música">
+      <p class="eyebrow eyebrow--light">La canción de este día</p>
+      <div class="music__frame"><div id="music-player"></div></div>
+    </section>
+
+    <footer class="footer">
+      <p>Luka Torralba Guillén · 14.11.2026</p>
+      <p class="footer__small">¡Os esperamos con mucha ilusión!</p>
+    </footer>
+  </main>
+  <button id="music-toggle" class="music-toggle" type="button" hidden></button>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/countdown.js"></script>
+<script src="js/links.js"></script>
+<script src="js/music.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/journey.js"></script>
+</body>
+</html>
