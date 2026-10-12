@@ -10,6 +10,6 @@ const CONFIG = {
   musicYouTubeId: '2OiwHDHcCXs',
   contacts: {
     alvaro: { name: 'Álvaro', phone: '647470724' },
-    tere: { name: 'Tere', phone: '610649989' }
+    tere: { name: 'Tere', phone: '610619989' }
   }
 };
